@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Task 3</title>
+	<script type="text/javascript">
+var arr = new Array(); 
+var kol = prompt("Введите колическтво элементов массива", "0");
+kol = parseInt(kol);
+for (var i = 0; i < kol; i++) 
+	arr[i] = Math.floor(Math.random()*(100-0)+0);
+for (var i=0; i<arr.length;i++)
+document.write(arr[i] + "<br />");
+var min = Math.min.apply(window, arr);
+document.write("Минимальное значение в массиве = "+min+"<br />");
+var max = Math.max.apply(window, arr);
+document.write("Максимальное значение в массиве = "+max + "<br />");
+var sum=0;
+for (var i=0; i<arr.length;i++)
+	sum = sum +arr[i];
+document.write("Сумма всех элементов массива равна " + sum + "<br />");
+var srar = 0;
+for (var i=0; i<arr.length; i++)
+	srar = srar + arr[i];
+srar=srar/kol;
+document.write("Среднее арифметичесое всех элементов массива = " + srar +"<br />");
+
+document.write("Нечетные числа в данном промежутке: "+"<br />");
+for (var i=0; i<=arr.length;i++)
+if (arr[i]%2==1)	
+	 document.write(arr[i] + "<br />");
+
+	document.write("<br />"+"Task 2:"+"<br />"+"<br />");
+	var matr = new Array(5);
+	for ( var i = 0; i < matr.length; i++) 
+	{
+	matr[i] = new Array(5);	
+};
+
+	for ( var row = 0; row < 5; row++ ) {
+	for ( var col = 0; col < 5; col++ ) {
+			matr[row][col] = Math.floor(Math.random()*(100+100-1))-100;
+	}
+
+};
+	for (var a = 0; a < 5; a++) {
+	
+	if (matr[a][a] <= 0) {
+	matr[a][a] = 0;
+	} else {
+		matr[a][a] = 1;
+	}
+	};
+	for (var i = 0; i < 5; i++) {
+	document.write(matr[i]);
+	document.write("</br>");
+	};
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task2</title>
+	<script type="text/javascript">
+	document.write("Task 1: " +"<br />");
+var a = prompt("Введите число А", "0");
+var b = prompt("Введите число В, большее числа А", "0");
+a = parseInt(a);
+b = parseInt(b);
+var s=0;
+for (var i=a;i<=b;i++){
+	
+s=s+i;
+};
+document.write("Сумма всех чисел от " + a + " до " + b + " = "  + s + "<br />");
+
+  document.write("Нечетные числа в данном промежутке: "  + "<br />");
+for (var i=a; i<=b;i++)
+if (i%2 !=0)	
+  document.write(i+"<br />");
+
+
+
+	document.write("<br />" +"Task2:" + "<br />");
+	var numb = prompt("Введите число клиентов");
+  var factorial = 1;
+  document.write("Количество возможных вариантов доставки товара: "  + "= ");
+  do {
+  if (numb == 0) {
+   factorial = 1;
+  break;
+  }
+  factorial = factorial * numb;
+  numb--; }
+  while (numb > 0);
+  document.write(factorial + "<br />");
+
+
+
+ document.write("<br />"+"Task3:" + "<br />"+"<br />");
+  document.write("Прямоугольник:" + "<br />");
+var l = 0, w = 0; //L=LENGTH of the figure, w-width
+var star = "*";
+var space = "&nbsp";
+do {  
+ document.write(star);
+l++;
+} while ( l < 10 );
+document.write ("</br>");
+w = 1;  
+do {    
+  l = 0; 
+  do {    
+    if ( l == 0 || l == 18 ) {
+      document.write (star);
+    } else {
+      document.write (space);
+    }
+    l++;  
+    
+  } while ( l < 19 );
+   document.write ("</br>"); 
+   w++;  
+} while ( w < 5 );
+l = 0;   
+do {
+ document.write (star);
+ l++;  
+} while ( l < 10 );
+document.write("</br>", "</br>", "</br>");
+
+document.write("Прямоугольный треугольник:"+"<br />");
+var s="";
+for (var c=1;c<10;c++){
+s+="*";
+document.write(s+"<br />");}
+
+document.write("Равносторонний треугольник" + "<br />");
+var spacew = 9;// max width of the figure
+var starl = 1;
+
+for (var row = 1; row < 6; row++) { 
+
+  for (var i = 1; i < spacew; i++) {  
+    
+    document.write(space);
+    
+  };
+  spacew = spacew - 2;
+  
+  for (var i = 0; i < starl; i++) { 
+    
+    document.write(star);
+  };
+  starl = starl + 2;
+  
+  document.write("<br />");
+  
+};
+
+ document.write("Ромб" + "<br />");
+ document.write("<br />", "<br />");
+
+var spacew = 9;
+var starl = 1;
+for (var row = 1; row < 6; row++) { 
+for (var i = 1; i < spacew; i++) {  
+document.write(space);
+  };
+spacew = spacew - 2;
+   for (var i = 0; i < starl; i++) {
+    
+  document.write(star);
+  };
+  starl = starl + 2;
+  
+  document.write("<br />"); 
+};
+spacew = 2;
+starl = 7;
+for (var row = 1; row < 5; row++) { 
+  for (var i = 0; i < spacew; i++) { 
+    document.write(space);
+  };
+  spacew = spacew + 2;
+  
+  for (var i = 0; i < starl; i++) { 
+    
+    document.write (star);
+  };
+  starl = starl - 2;
+  
+  document.write("</br>");
+  
+};
+       
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

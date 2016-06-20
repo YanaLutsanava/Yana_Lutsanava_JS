@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>hometask part1</title>
+
+    <script type="text/javascript">
+
+var x = 6;
+var y = 15;
+var z = 4;
+document.write("Task 1:" + "<br />");
+var ex1 = x += y - x++ *z;
+document.write("x+=y-x++z = "+ex1+"<br />");
+var ex2 = z=--x-y*5;
+document.writeln("z=--x-y*5 = "+ ex2 + "<br />");
+var ex3 = y/=x+5 % z;
+document.write("y/=x+5%z = " + ex3 +"<br />");
+var ex4 = z=x++ + y * 5;
+document.write("z=x++ +y*5 = " + ex4 + "<br />");
+var ex5 = x=y-x++*z;
+document.write("x=y-x++*z =" + ex5 +"<br />");
+	document.write("Task 2:" + "<br />");
+	var x = 6;
+	var y = 15;
+	var z = 4;
+	var sr = (x+y+z)/3;
+	document.write("Среднее арифметическое " + x + " , " + y + " и " + z + " равно " + sr + "<br />");
+		document.write("Task 3:"+ "<br />");
+		var r = prompt("Введите радиус", "0");
+		var h = prompt("Введите высоту ", "0");
+		var v= Math.PI*parseFloat(r)*2*parseFloat(h);
+		document.write("Объем цилиндра с радиусом "+ r +" и высотой " + h + " равен "+ v+"<br />");
+		var s = Math.PI *2*r*(r+h);
+		document.write("Площадь поверхности  цилиндра с радиусом "+ r +" и высотой " + h + " равна "+ s);
+
+ </script>
+</head>
+<body>
+	
+</body>
+</html>
+
+
