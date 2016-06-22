@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Arrays</title>
+	<script type="text/javascript">
+ 			var arr = [];
+            var len = 20;
+            for (var i = 0; i < len; i++) {
+                arr[i]=i * 5;
+               console.log(arr[i]);
+            }
+
+
+            document.write('Task 2:' + '<br />');
+            var charArr = prompt('Enter the first array of any length', '0');
+            var charArr2 = prompt('Enter the second array', '0');
+            if (charArr !=0 && charArr2!=0){
+            if (charArr > charArr2) {
+            	document.write('The first array is bigger than the second one!');
+            }
+            else if 
+            	(charArr< charArr2) {
+            		document.write('The second array is bigger!');
+            }
+            else document.write('The arrays ae equal!');
+			}
+			else alert('Enter the arrays, please!');
+
+ document.write('<br />' + 'Task 3:' + '<br />');
+var seq = prompt('Enter the sequence of random numbers','0');
+for (var a=0; a<seq.length; a++)
+{
+	document.write(seq[a] + '<br />');
+}
+var repseq=[];
+var count = 1;
+var maxseq=0;
+var repnum;
+for (var i=1; i< seq.length; i++) {
+	if (seq[i] === seq[i+1]) {
+		count +=1;
+	}
+	else { count=1;
+}
+if (maxseq < count) {
+	maxseq = count;
+	repnum = seq[i];
+}
+}
+for (i=0; i<maxseq;i++) {
+	repseq[i] = repnum;
+}
+document.write('The maximal sequence of repetitive elements: ' + repseq.join(', '));
+
+		document.write('<br />' + 'Task 4: ' + '<br />');
+		var seq = [1,5,8,2,3,4,9,9,7,6,4];
+		for (var a=0; a<seq.length; a++)
+{
+	document.write(seq[a] + ' ,');
+};
+		var count=0;
+		var maxn=0;
+		var fistn;
+		var lastn;
+		var incseq=[];
+		for (var i=1;i<seq.length;i++) {
+			if (seq[i-1]+1 === seq[i]) {
+				count +=1;
+			} else {
+				count =0;
+			}
+			if (maxn<count) {
+				maxn=count;
+				lastn=seq[i];
+			}
+		}
+		firstn=lastn-maxn;
+		for (i=0;i <= maxn;i++) {
+			incseq[i] = firstn+i;
+		}
+document.write('<br />' + 'The maximal increasing sequence in the array: ' + incseq.join(', '));
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
