@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Fucntions</title>
+		
+<script type="text/javascript">
+document.write('Task 1. Return of the last digit: ' + '<br />');
+        function digitNumber(n) {
+        var n=parseFloat(document.getElementById('userInput').value);		
+	       var lastDigit = n % 10;
+            switch (lastDigit) {
+                case 1:
+                   document.getElementById('placeForText').innerHTML='One';
+                    break;
+                case 2:
+                    document.getElementById('placeForText').innerHTML='Two';
+                    break;
+                case 3:
+                   document.getElementById('placeForText').innerHTML='Three';
+                    break;
+                case 4:
+                   document.getElementById('placeForText').innerHTML= 'Four';
+                    break;
+                case 5:
+                    document.getElementById('placeForText').innerHTML='Five';
+                    break;
+                case 6:
+                    document.getElementById('placeForText').innerHTML= 'Six';
+                    break;
+                case 7:
+                   document.getElementById('placeForText').innerHTML= 'Seven';
+                   break;
+                case 8:
+                    document.getElementById('placeForText').innerHTML= 'Eight';
+                    break;
+                case 9:
+                    document.getElementById('placeForText').innerHTML= 'Nine';
+                    break;
+                case 0:
+                   document.getElementById('placeForText').innerHTML= 'Zero';
+                   break;
+                default:
+                    alert('Enter the NUMBER, please!');   
+            }};
+
+            
+            function reverse(num) {
+                var num=document.getElementById('userInput1').value;
+                var arr = new Array();
+                var index = num.length;
+                for (var i=0;i < num.length; i++) {
+                    arr[i] = num[index];
+                    index--;
+                }
+                for (var i = 0; i < arr.length; i++) {
+                     document.getElementById('placeForText1').innerHTML=(arr[i]);
+                }
+        
+                
+               };
+                var text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ipsum gravida ligula lacus, in faucibus orci ipsum ac. ' +
+                   'Ipsum rhoncus Ipsum facilisis eleifend porta. Nulla eu nunc nibh. Vestibulum ut neque ac metus accumsan dignissim. ' +
+                   'Aliquam tempus urna odio, vitae mollis velit sollicitudin nec. In commodo elementum tempor. Donec rhoncus ante quis mauris ' +
+                   'lorem commodo. Lorem dolor justo, lacinia lorem nulla vitae, convallis egestas augue. Phasellus orci augue, suscipit ac neque a, ' +
+                   'ornare congue elit. Fusce at diam at tortor sodales lorem. Nulla ac mauris lacus. Curabitur lobortis lacinia lorem.';
+
+        var Word = document.getElementById('userInput3').value;
+       
+        
+        function findWord(text, word, isCaseSensitive) {
+           
+            var startIndex = 0;
+            var occurences = 0;
+            while (true) {
+                startIndex = text.indexOf(Word, startIndex);
+                if (startIndex == -1) {
+                    break;
+                }
+                else {
+                    startIndex += word.length;
+                    occurences++;
+                }
+            }
+            document.getElementById('placeFoText3').innerHTML=occurences;
+        }
+
+  
+
+	</script>
+</head>
+<body>
+	<input id='userInput' size=20>
+<input type="button" value='Do it!' onClick="digitNumber()"/>
+<div id='placeForText'></div>
+    
+
+<br> <br>
+<p>Task 2: Revese numbes</p>
+<input id='userInput1' size=20>
+<input type="button" value='Reverse!' onclick="reverse()"/>
+<div id='placeForText1'></div>
+<input id='userInput3' size=20>
+<input type='button' value='find' onClick='findWord()'>
+<div id='placeForText3'></div>
+
+<script type="text/javascript">
+     alert('The quantity of divs on the web-page = ' + document.getElementsByTagName('div').length);
+</script>
+
+</body>
+</html>

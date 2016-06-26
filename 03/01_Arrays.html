@@ -23,7 +23,7 @@
             	(charArr< charArr2) {
             		document.write('The second array is bigger!');
             }
-            else document.write('The arrays ae equal!');
+            else document.write('The arrays are equal!');
 			}
 			else alert('Enter the arrays, please!');
 
@@ -33,10 +33,10 @@ for (var a=0; a<seq.length; a++)
 {
 	document.write(seq[a] + '<br />');
 }
-var repseq=[];
-var count = 1;
+var repseq=[]; //the sequence of numbers that is repeated
+var count = 1; // the quantity of repeated numbes
 var maxseq=0;
-var repnum;
+var repnum; // the number that is repeated
 for (var i=1; i< seq.length; i++) {
 	if (seq[i] === seq[i+1]) {
 		count +=1;
@@ -61,7 +61,7 @@ document.write('The maximal sequence of repetitive elements: ' + repseq.join(', 
 };
 		var count=0;
 		var maxn=0;
-		var fistn;
+		var firstn;
 		var lastn;
 		var incseq=[];
 		for (var i=1;i<seq.length;i++) {
