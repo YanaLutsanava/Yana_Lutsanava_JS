@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Strings</title>
+</head>
+<script type="text/javascript">
+ 
+	function rever(input) {
+		var input=document.getElementById('str').value;
+		var revstr=' ';
+		for (var i=input.length-1;i>=0;i--) {
+			revstr = revstr+input[i];
+		}
+		
+		 document.getElementById('placeForText').innerHTML= revstr;
+	};
+
+
+function brackets(sent) {
+ var sent=document.getElementById('sent').value;
+ var openbr=0;
+ if (sent==0){alert('Enter the expression!'); } else {
+ for (var i=0; i<sent.length;i++) {
+ 	if (sent[i] ==='(') {
+ 		openbr++;
+ 	} else  if 
+ 	 (sent[i] ===')') {
+	openbr--;
+} if (openbr<0) { break;}
+ } if (openbr===0) {
+ 
+ 	document.getElementById('answer').innerHTML='The expression is corect!';}
+ 	else {document.getElementById('answer').innerHTML='The expession is incorrect';
+ }}}
+ 
+
+function find() {
+	var str=document.getElementById('strin').value;
+	var substr=document.getElementById('subs').value;
+	var flags='gi';
+	var reg=new RegExp(substr,flags);
+	var count=str.match(reg);
+document.getElementById('ans').innerHTML=count.length;
+}
+
+
+function changeCase(match) {
+            var output = "";
+            for (var i = 0; i < match.length; i++) {
+                if (i % 2 === 0) {
+                    output += match[i].toUpperCase();
+                }
+                else {
+                    output += match[i].toLowerCase();}
+                
+            }
+            return output;
+        }
+        function changec(match) {
+            var text = 'We are <mixcase>living</mixcase> in a <upcase>yellow submarine</upcase>. We <mixcase>dont</mixcase> have <lowcase>anything</lowcase> else.';
+                var regexUpCase = /<upcase>(.*?)<\/upcase>/gi; // global seach for everything embedded between these tags, accoding to javascript.ru
+                var regexLowCase = /<lowcase>(.*?)<\/lowcase>/gi;
+                var regexMixCase = /<mixcase>(.*?)<\/mixcase>/;
+                var result = text.replace(regexUpCase, function (match) { return match.toUpperCase(); });
+                var result = result.replace(regexLowCase, function (match) { return match.toLowerCase(); });
+                var result = result.replace(regexMixCase, changeCase);
+
+            document.getElementById('cases').innerHTML=result;
+        }
+
+function delspaces(){
+	var text=document.getElementById('spaces').value;
+	text=text.replace('  ','&nbsp;');
+	document.getElementById('res').innerHTML=text;
+}
+
+function extraction() {
+	var text=document.getElementById('textTags').value;
+	var changedText=text.replace(/(<[^>]+)>/ig,''); //everything between these tags, global search
+	document.getElementById('extrtext').innerHTML=changedText;
+}
+
+function pars(url) {
+	var match=/(.*):\/\/(.*)(\/.*)/.exec(url);
+	return {protocol: match[1],server: match[2],resourse: match[3]};
+}
+function parse() {
+	var url=document.getElementById('inputp').value;
+	var resultObject = pars(url);
+	for (var i in resultObject) {
+		document.getElementById('resul').innerHTML=i+ ': ' + resultObject[i];
+	}
+}
+
+</script>
+<body>
+	<input id='str' size=20>
+	<input type="button" value='Reverse!' onClick="rever()"/>
+<div id='placeForText'></div>
+<br>
+<input id='sent' size=20>
+<input type="button" value='Check it!' onClick="brackets()"/>
+<div id='answer'></div>
+<br>
+<p>Enter the string here </p><input id='strin' size=60>
+<p>Enter the substring for search here </p> <input id='subs' size=20>
+	<input type="button" value='Search!' onClick="find()"/>
+<div id='ans'></div>
+<p> Task 5</p>
+<br>
+<input id='spaces' size=60>
+<input type="button" value="Substitute" onClick="delspaces()"/>
+<div id="res"></div>
+<br>
+<p>Task 4:</p>
+<br>
+<input type="button" value="Change cases" onClick="changec()">
+<div id="cases"></div>
+<input type="text" size=150 value="<html>
+        <head>
+            <title>Sample site</title>
+        </head>
+        <body>
+            <div>text<div>more text</div>and more...</div>in body
+        </body>
+    </html>" id="textTags"/>
+    <input type="button" onClick="extraction()" value="Extract text"/>
+    <div id="extrtext"></div> 
+
+	<br>
+    <p>Task 7: </p>
+    <br>
+    <input type="text" value="http://www.tut.by/forum/index.php" id="inputp"/>
+    <input type="button" value="Parse URL" id="parse()"/>
+    <div id="resul"></div>
+</body>
+</html>

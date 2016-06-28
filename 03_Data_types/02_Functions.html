@@ -47,45 +47,24 @@ document.write('Task 1. Return of the last digit: ' + '<br />');
             
             function reverse(num) {
                 var num=document.getElementById('userInput1').value;
-                var arr = new Array();
-                var index = num.length;
-                for (var i=0;i < num.length; i++) {
-                    arr[i] = num[index];
-                    index--;
-                }
-                for (var i = 0; i < arr.length; i++) {
-                     document.getElementById('placeForText1').innerHTML=(arr[i]);
-                }
-        
+                var revn=' ';
+            for (var i=num.length-1;i>=0;i--) {
+            revn = revn+num[i];}
+         document.getElementById('placeForText1').innerHTML=(revn);
+             };
                 
-               };
-                var text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ipsum gravida ligula lacus, in faucibus orci ipsum ac. ' +
-                   'Ipsum rhoncus Ipsum facilisis eleifend porta. Nulla eu nunc nibh. Vestibulum ut neque ac metus accumsan dignissim. ' +
-                   'Aliquam tempus urna odio, vitae mollis velit sollicitudin nec. In commodo elementum tempor. Donec rhoncus ante quis mauris ' +
-                   'lorem commodo. Lorem dolor justo, lacinia lorem nulla vitae, convallis egestas augue. Phasellus orci augue, suscipit ac neque a, ' +
-                   'ornare congue elit. Fusce at diam at tortor sodales lorem. Nulla ac mauris lacus. Curabitur lobortis lacinia lorem.';
 
-        var Word = document.getElementById('userInput3').value;
        
         
         function findWord(text, word, isCaseSensitive) {
-           
-            var startIndex = 0;
-            var occurences = 0;
-            while (true) {
-                startIndex = text.indexOf(Word, startIndex);
-                if (startIndex == -1) {
-                    break;
-                }
-                else {
-                    startIndex += word.length;
-                    occurences++;
-                }
-            }
-            document.getElementById('placeFoText3').innerHTML=occurences;
-        }
+            var text = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.';
+            var search = 'Lorem';
+            var flags='g';
+            var reg= new RegExp('\\b' + search + '\\b',flags);
+            var count = text.match(reg);
+            document.getElementById('res').innerHTML=text + '<br>' + 'The quantity of occurences of the word ' + search + ' in the text is equal to ' +  count.length;
 
-  
+        }
 
 	</script>
 </head>
@@ -96,13 +75,16 @@ document.write('Task 1. Return of the last digit: ' + '<br />');
     
 
 <br> <br>
-<p>Task 2: Revese numbes</p>
+<p>Task 2: Reverse numbers</p>
 <input id='userInput1' size=20>
 <input type="button" value='Reverse!' onclick="reverse()"/>
 <div id='placeForText1'></div>
-<input id='userInput3' size=20>
-<input type='button' value='find' onClick='findWord()'>
+<br>
+<p>Task 3:</p>
+<br>
+<input type='button' value='Find occurences' onClick='findWord()'>
 <div id='placeForText3'></div>
+<div id="res"></div>
 
 <script type="text/javascript">
      alert('The quantity of divs on the web-page = ' + document.getElementsByTagName('div').length);

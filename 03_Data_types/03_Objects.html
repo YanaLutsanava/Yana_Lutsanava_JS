@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Objects</title>
+	<script type="text/javascript">
+
+function plansys(x,y) {
+    return {
+        x: x,
+        y: y,
+    };
+} 
+function lines(pnt1, pnt2) {
+    return {
+        pnt1: pnt1,
+        pnt2: pnt2,
+        makeLine: function () {
+            return 'Line point 1(' + pnt1.x + ', ' +pnt1.y + ') ' + 'Line point 2(' + pnt2.x + ', ' + pnt2.y + ')'; 
+        }
+    };
+}
+function dist(pnt1,pnt2) {
+    return parseInt(Math.abs(pnt1.x-pnt2.x)*Math.abs(pnt2.x-pnt2.y)+Math.abs(pnt1.y-pnt2.y)*Math.abs(pnt1.y-pnt2.y));
+}
+function triang(lineA,lineB,lineC) {
+    var a=dist(lineA.pnt1, lineB.pnt2);
+    var b=dist(lineB.pnt1, lineB.pnt2);
+    var c=dist(lineC.pnt1, lineC.pnt2);
+
+    if ((a+b>c) && (a+c>b) && (c+b>a)) {
+        return true;
+    } else {return false;} 
+}
+function exec() {
+    var ln1=lines(plansys(5,5),plansys(7,7));
+    var ln2=lines(plansys(1,1),plansys(3,3));
+    var ln3=lines(plansys(4,4),plansys(2,2));
+    if (triang(ln1,ln2,ln3)) {
+        document.write("Can create a triangle from these lines" + '<br>')
+    } else {
+        document.write('Can not create a tiangle' );
+}
+    document.write('Line 1: ' + ln1.makeLine() + '<br />');
+    document.write('Line 2: ' + ln2.makeLine() + '<br />');
+    document.write('Line 3: ' + ln3.makeLine() + '<br />');
+}
+
+
+  document.write('Task 2:' + '<br />');
+  var arr = [1, 2, 1, 4, 1, 3, 4, 1, 111, 3, 2, 1, "1"];
+  document.write('Исходный массив:' + '<br />');
+  for (var i=0;i<arr.length;i++)
+  {
+  	document.write(arr[i] + ', ');
+  }
+       var elem=1;  
+         for (var i = 0; i < arr.length; i++) {
+                        if ( elem === arr[i]) {
+                           delete arr[i];
+                        }
+                    }
+                    for (i=0;i<arr.length;i++)
+                    {
+                    	if (typeof arr[i]=='undefined'){
+                    		arr.splice(i,1);
+                    	}
+                    }
+            document.write('<br />' + 'Измененный массив: ' + '');
+            for (var i = 0; i < arr.length; i++) {
+               document.write(arr[i] + ", ");
+            }
+
+            document.write('<br />' + 'Task 3:' + '<br />');
+           
+            var person = {
+            	firstName: 'Yana',
+            	lastName: 'Lutsanava',
+            	age: 21
+            };
+            var clone={};
+           
+            var clone = Object.create(person);
+            for (var i in clone) {
+        
+            document.write(clone[i] + '<br />')};
+
+
+
+            document.write('<br />' + 'Task 4:' + '<br />');
+             function createPerson(firstname, lastname, age) {
+            return {
+                firstname: firstname,
+                lastname: lastname,
+                age: age,
+                printPerson: function () {
+                    return "The youngest Person is:<br/> " + this.firstname + " " + this.lastname + " - " + this.age;
+                }
+            };
+        }
+        function getYoungestPerson(people) {
+            var youngestPerson,
+                searchAge = 100;
+
+            for (var i in people) {
+                if (people[i].age < searchAge) {
+                    youngestPerson = people[i];
+                    searchAge = people[i].age;
+                }
+            }
+            return youngestPerson;
+        }
+        function onExecuteClick() {
+            var people = [
+                createPerson("Ivan", "Ivanov", 25),
+                createPerson("Vasya", "Petrov", 15),
+                createPerson("Sasha", "Sidorov", 45)
+            ];
+
+            var youngestPerson = getYoungestPerson(people);
+            document.getElementById('placeForText').innerHTML=youngestPerson.printPerson();
+        };
+
+
+            document.write('<br />' + 'Task 5:' + '<br />');
+             function group(arr, crit) {
+            var endArr = [];
+            var groupedArr = [];
+            if (crit == "age") {
+                var uniqeKeys = new Array();
+                for (var i = 0; i < arr.length; i++) {
+                    var repeated = false;
+                    for (var j = 0; j < uniqeKeys.length; j++) {
+                        if (arr[i].age === arr[j].age) {
+                            repeated = true;
+                            break;
+                        } }
+
+                    if (!repeated) {
+                        uniqeKeys.push(arr[i]);
+                    }}
+
+
+                for (var i = 0; i < uniqeKeys.length; i++) {
+                    var tempArr = [];
+                    for (var j = 0; j < arr.length; j++) {
+                        if (uniqeKeys[i].age == arr[j].age) {
+                            tempArr.push(arr[j]);
+                        }}
+                    groupedArr.push(tempArr);
+                }
+                for (var i = 0; i < groupedArr.length; i++) {
+                    endArr.push({ Key: groupedArr[i][0].age, Value: groupedArr[i] });
+                } }
+            else if (crit == "firstname") {
+                var uniqeKeys = new Array();
+                for (var i = 0; i < arr.length; i++) {
+                    var repeated = false;
+                    for (var j = 0; j < uniqeKeys.length; j++) {
+                        if (arr[i].firstname === arr[j].firstname) {
+                            repeated = true;
+                            break;
+                        }
+                    }
+                    if (!repeated) {
+                        uniqeKeys.push(arr[i]);
+                    }
+                }
+                for (var i = 0; i < uniqeKeys.length; i++) {
+                    var tempArr = [];
+
+                    for (var j = 0; j < arr.length; j++) {
+                        if (uniqeKeys[i].firstname == arr[j].firstname) {
+                            tempArr.push(arr[j]);
+                        }
+                    }
+                    groupedArr.push(tempArr);
+                }
+                for (var i = 0; i < groupedArr.length; i++) {
+                    endArr.push({ Key: groupedArr[i][0].firstname, Value: groupedArr[i] });
+                }
+            }
+            else if (crit == "lastname") {
+                var uniqeKeys = new Array();
+                for (var i = 0; i < arr.length; i++) {
+                    var repeated = false;
+                    for (var j = 0; j < uniqeKeys.length; j++) {
+                        if (arr[i].lastname === arr[j].lastname) {
+                            repeated = true;
+                            break;
+                        } }
+
+                    if (!repeated) {
+                        uniqeKeys.push(arr[i]);
+                    }
+                }
+
+
+                for (var i = 0; i < uniqeKeys.length; i++) {
+                    var tempArr = [];
+                    for (var j = 0; j < arr.length; j++) {
+                        if (uniqeKeys[i].lastname == arr[j].lastname) {
+                            tempArr.push(arr[j]);
+                        }
+                    }
+                    groupedArr.push(tempArr);
+                }
+                for (var i = 0; i < groupedArr.length; i++) {
+                    endArr.push({ Key: groupedArr[i][0].lastname, Value: groupedArr[i] });
+                }
+            }
+            else {
+                return "Wrong criteria";
+            }
+
+            return endArr;
+        }
+
+        function onExecuteClick1() {
+            var persons = [
+                        { firstname: "Ivan", lastname: "Ivanov", age: 18 },
+                        { firstname: "Evan", lastname: "Peters", age: 33 },
+                        { firstname: "Tony", lastname: "Stark", age: 47 },
+                        { firstname: "Rumsy", lastname: "Bolton", age: 32 },
+                        { firstname: "Ed", lastname: "Stark", age: 50 }
+            ];
+
+
+            var a = group(persons, "age");
+
+            for (var i in a) {
+                document.write(a[i].Key + ' ');
+            }
+            
+
+            var b = group(persons, "lastname");
+
+            for (var i in b) {
+                document.write(b[i].Key + ' ');
+            }
+
+            var c = group(persons, "firstname");
+
+            for (var i in c) {
+                document.write(c[i].Key + ' ');
+            }
+        }
+	</script>
+</head>
+<body>
+	<button onclick="onExecuteClick()">Execute</button>
+	<div id='placeForText'></div>
+    <button onclick="onExecuteClick1()">Execute</button></td>
+    <button onClick='exec()'> Create</button>
+</body>
+</html>
