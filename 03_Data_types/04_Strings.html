@@ -57,7 +57,6 @@ function changeCase(match) {
             }
             return output;
         }
-
         function changec(match) {
             var text = 'We are <mixcase>living</mixcase> in a <upcase>yellow submarine</upcase>. We <mixcase>dont</mixcase> have <lowcase>anything</lowcase> else.';
                 var regexUpCase = /<upcase>(.*?)<\/upcase>/gi; // global seach for everything embedded between these tags, accoding to javascript.ru
