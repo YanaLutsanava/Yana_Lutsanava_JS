@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Functions</title>
+	 <script type="text/javascript">
+	console.log(conc('1','1'));
+	console.log(conc(1,1));
+	 function conc(a,b) {
+	 	a=a.toString();
+	 	b=b.toString();
+	 	
+	 	return ("result = "+ '\u0022' + a.concat(b)+ '\u0022');
+	 }
+
+// fo the reason we can't call function before it's declaration in case of function expression,i'll do this task in the following way:
+var comp=function(a,b) {
+	if (a==b) return(1)
+		else if (a!=b)
+			return(-1)
+}
+	console.log(comp('abc','abc'));
+	console.log(comp('abC','abc'));
+
+
+		function msg(){
+			var mic= function(str){
+			console.log(str)}
+	mic('message in console');
+			}
+		
+
+
+				var fib=function fibo(n){
+				
+  				var a = 1,
+    				b = 0,
+    				x;
+ 				 for (i = 0; i < n; i++) {
+    				x = a + b;
+    				a = b
+    				b = x;
+  				}
+ 				return(b);}
+ 				
+ 				var g=fib;fib=null;
+				console.log(g(10));
+
+
+				(function(){
+					console.log('This is an example of an immediately invoked function:');
+				}());
+
+	 (function conc(a,b) {
+	 	var a=1; var b=1;
+	 	a=a.toString();
+	 	b=b.toString();
+	 	console.log ("result = "+ '\u0022' + a.concat(b)+ '\u0022');
+	 }());
+
+
+	 			var parts=function parts(param1,param2){
+	 				param1="This is the first sentence. This is a sentence with a list of items: cherries, oranges, apples, bananas.";
+	 				param2="This is the second sentence. This is a sentence with a list of items: red, blue, yellow, black.";
+	 				var indexStart=param1.indexOf(":");
+	 				var indexEnd=param1.indexOf("." , indexStart);
+	 				var indSt=param2.indexOf(":");
+	 				var indEnd=param2.indexOf('.' , indSt);
+	 				str1=param1.substring(indexStart+2,indexEnd);
+	 				str1=str1.split(', ');
+	 				str2=param2.substring(indSt+2,indEnd); 
+	 				str2=str2.split(',');
+	 				console.log("result =  [" + '\u0022'+str1+'\u0022'+" , "+'\u0022'+str2+'\u0022'+"]");
+	 			}
+	 			parts();
+
+</script>
+</head>
+<body>
+	<input type='button' value='Msg in console' onClick='msg()'>
+</body>
+</html>
