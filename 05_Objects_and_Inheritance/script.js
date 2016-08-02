@@ -21,7 +21,7 @@ function Person(firstname,lastname,age){
 
 
 		this.setLastname=function(lastname){
-			if  (!REGEXP.test(firstname)){
+			if  (!REGEXP.test(lastname)){
 				if (lastname.length<3 || lastname.length>20)
 					{	throw 'The lastname should contain from 3 to 20 letters!';
 					}}
@@ -63,5 +63,16 @@ console.log(person.getAge());
 person.setFullname('Ivan','Ivanov');
 console.log(person.getFullname());
 introduce();
+
+//Here are the strings to check how my error-throwing works.
+var person= new Person();
+/*person.setFirstname('Al');
+console.log(person.getFirstname());*/
+/*person.setLastname('2ff4');
+console.log(person.getLastname());*/
+/*person.setAge("155");
+console.log(person.getAge());*/
+
+
 
 
