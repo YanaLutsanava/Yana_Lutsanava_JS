@@ -13,7 +13,7 @@ function innerDivs(){
 
 
 function querySel(){
-	var inner=document.querySelectorAll('div'>'div');
+	var inner=document.querySelectorAll('div div');
 	for (var i=0;i<inner.length;i++){
 		console.log(inner[i]);
 	}
