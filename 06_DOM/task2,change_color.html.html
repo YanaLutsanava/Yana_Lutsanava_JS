@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<textarea>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde aliquam cum perferendis aut natus, expedita rerum officiis quibusdam culpa reiciendis! Veritatis voluptate id soluta vero hic magni minima porro saepe.</textarea>
+<input type="color"/>
+<input type="color"/>
+
+
+	<script>
+	var textarea=document.getElementsByTagName('textarea')[0];
+var inputs=document.getElementsByTagName('input');
+var fontcol=inputs[0];//the fist color picker is for font color
+var bgcol=inputs[1];//the seconnd is for backgound
+fontcol.addEventListener('change',function(){
+	textarea.style.color=fontcol.value;
+},false);
+bgcol.addEventListener('change',function(){
+	textarea.style.backgroundColor=bgcol.value;
+},false);
+</script>
+</body>
+</html>
