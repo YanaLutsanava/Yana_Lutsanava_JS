@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Animation</title>
+</head>
+<body>
+	<canvas id="canvas" width="500" height="500">Error</canvas>
+	<script>
+	var canvas=document.getElementById('canvas');
+	var ctx=canvas.getContext("2d");
+
+	function drawCicrle (ox,oy,radius,startAngle,finishAngle,innerColor,lineColor,rotate) {
+
+	ctx.save();//save the current situation
+	ctx.beginPath();//start drawing
+	ctx.fillStyle=innerColor;
+	ctx.strokeStyle=lineColor;
+	ctx.rotate(rotate*Math.PI/180);
+	ctx.scale(startAngle,finishAngle);
+	ctx.arc(ox,oy,radius,0,2*Math.PI);
+	ctx.lineWidth=3;
+	ctx.fill();
+	ctx.stroke();
+	ctx.closePath();
+	ctx.restore();
+}
+
+
+function drawHead(){
+	drawCicrle(150,250,110,1,0.9,'#90cad7','#124a54');//head
+
+	drawCicrle(100, 260, 20, 1, 0.8, '#90cad7', '#184a54');//outer parts of the eyes
+            ctx.translate(40, 0);//still do not understand how to use, just tried random numbers to make the picture liik better
+            drawCicrle(110, 260, 20, 1, 0.8, '#90cad7', '#184a54');
+            ctx.translate(-20, -52);
+            drawCicrle(105, 260, 12, 0.65, 1, '#184a54', '#184a54');//inner parts
+            ctx.translate(50, 0);
+            drawCicrle(108, 260, 12, 0.65, 1, '#184a54', '#184a54');
+
+ctx.translate(-52,0);
+ctx.strokeStyle="#184a54";
+ctx.lineWidth=2;
+ctx.moveTo(108,260);
+ctx.lineTo(100,285);
+ctx.lineTo(110,285);
+	ctx.stroke();
+
+ctx.translate(50,70);//mouth
+	drawCicrle(120,470,45,1,0.5,'#184a54','#184a54',12);
+	ctx.translate(0,100);
+
+drawCicrle(70,150,110,1,0.2,'#396693', '#262626', 0);//lowest part of the hat
+ctx.translate(-70,-100);
+ctx.beginPath();
+
+ctx.lineWidth=3;
+ctx.moveTo(100,30);
+ctx.lineTo(100,120);
+ctx.scale(2,1);
+ctx.arc(70,120,20,1*Math.PI,0*Math.PI,true);
+ctx.lineTo(90,30);
+ctx.closePath();
+ctx.strokeStyle="#184a54";
+ctx.fillStyle='#396693';
+ctx.fill();
+ctx.stroke();
+drawCicrle(70,38,20,1,0.7,'#396693','#184a54',0);
+
+ctx.restore();
+
+
+}
+
+drawHead();
+	</script>
+	
+</body>
+</html>
